@@ -44,9 +44,9 @@ function currentState(){
   return board;
 }
 
-function checkState(c, b){
-  if (b[c[0]] !== "" && b[c[0]] === b[c[1]] && b[c[1]] === b[c[2]]) {
-    winner = b[[1]]
+function checkState(combo, board){
+  if (board[combo[0]] !== "" && board[combo[0]] === board[combo[1]] && board[combo[1]] === board[combo[2]]) {
+    winner = board[combo[1]]
     return true;
   };
 }
