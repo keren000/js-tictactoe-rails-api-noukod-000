@@ -2,6 +2,27 @@
 var turn = 0;
 var currentGame = 0;
 
+function checkWinner(){
+  const WIN_COMBINATIONS = [
+   [0,1,2],
+   [3,4,5],
+   [6,7,8],
+   [0,3,6],
+   [1,4,7],
+   [2,5,8],
+   [0,4,8],
+   [6,4,2]
+ ];
+
+ for(i = 0; i < WIN_COMBINATIONS.length; i++){
+   if (checkState(WIN_COMBINATIONS[i], currentState())){
+     setMessage(`Player ${winner} Won!`)
+     return true;
+   };
+ };
+ return false;
+}
+
 function player(){
   return turn % 2 ? 'O' : 'X';
 }
@@ -28,27 +49,6 @@ function checkState(combo, board){
     winner = board[combo[1]]
     return true;
   };
-}
-
-function checkWinner(){
-  const WIN_COMBINATIONS = [
-   [0,1,2],
-   [3,4,5],
-   [6,7,8],
-   [0,3,6],
-   [1,4,7],
-   [2,5,8],
-   [0,4,8],
-   [6,4,2]
- ];
-
- for(i = 0; i < WIN_COMBINATIONS.length; i++){
-   if (checkState(WIN_COMBINATIONS[i], currentState())){
-     setMessage(`Player ${winner} Won!`)
-     return true;
-   };
- };
- return false;
 }
 
 function doTurn(square){
