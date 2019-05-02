@@ -58,7 +58,7 @@ function doTurn(square){
     saveGame();
     resetBoard();
   } else if (turn === 9){
-    setMessage('Draw.');
+    setMessage('Tie game.');
     saveGame();
     resetBoard();
   }
